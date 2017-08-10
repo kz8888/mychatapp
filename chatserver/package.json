@@ -1,0 +1,15 @@
+{
+  "name": "chatserver",
+  "version": "1.0.0",
+  "description": "a chat server using express and socket.is",
+  "main": "server.js",
+  "dependencies": {
+    "express": "~4.15.2",
+    "socket.io": "^2.0.3"
+	},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
