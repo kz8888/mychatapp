@@ -2,7 +2,7 @@ import React from 'react';
 import io from "socket.io-client";
 import uuidv1 from 'uuid/v1';
 
-let socket = io('https://mychatapp-kz8888.c9users.io:8082');
+let socket = io('https://localhost:8082');
 
 const MessageView = (({message}) =>
     <li>({message.timestamp}) <strong>{message.author}: </strong>{message.text}</li>
