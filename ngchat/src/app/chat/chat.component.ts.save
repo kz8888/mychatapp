@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {NgForm} from '@angular/forms'
 import * as io from "socket.io-client";
 import uuidv1 from 'uuid/v1';
 
@@ -10,7 +11,7 @@ import uuidv1 from 'uuid/v1';
 export class ChatComponent implements OnInit {
     messages = [];
     
-    socket = io('localhost:8082');
+    socket = io('mychatapp-kz8888.c9users.io:8082');
     
     constructor(){}
     
@@ -21,16 +22,15 @@ export class ChatComponent implements OnInit {
       }.bind(this));
     }
     
-    postMessage(author,text){
-      console.log('author: ' + author.value );
-      console.log('text: ' + text.value );
+    onSubmit(f: NgForm){
+      console.log('f: ' + f.value.author );
       let newMessage = {
         id: uuidv1(),
         timestamp: new Date().toISOString(),
-        author: author.value,
-        text: text.value
+        author: f.value.author,
+        text: f.value.text
       };
-      text.value = '';
       this.socket.emit("new-message", newMessage);
     }
 }
+

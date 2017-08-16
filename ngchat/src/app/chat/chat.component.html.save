@@ -1,12 +1,13 @@
 <div>
     <ul>
-        <li *ngFor="let message of messages" key = {message.id} >
-            ({message.timestamp}) <strong>{message.author}: </strong>{message.text}
+        <li *ngFor="let message of messages" key = {message.id}>
+            ({{message.timestamp | date:'medium'}}) - <strong>{{message.author}}: </strong>{{message.text}}
         </li>
     </ul>
-    <form #msgForm="ngForm" (ngSubmit)={handleSubmit()}>
-        <input type="text" id="authorInput" [(ngModel)]="msgData.author" name="author" placeholder="Type your name here..." required=""/>
-        <input type="text" id="messageInput" [(ngModel)]="msgData.text" name="text" placeholder="Type your message here..." required=""/>
-        <button id="btnPost">Post Message</button>
-    </form>
+
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)" >
+      <input name="author" ngModel >
+      <input name="text" ngModel>
+      <button>Post Message</button>
+     </form>
 </div>
