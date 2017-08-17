@@ -33,8 +33,6 @@ class Chat extends React.Component {
             text: this.messageInput.value
         }; 
         socket.emit('new-message', newMessage )
-        this.setState({ messages: [ ...this.state.messages, newMessage ] });
-        //this.authorInput.value = '';
         this.messageInput.value = ''; 
     }  
 
